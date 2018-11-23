@@ -261,7 +261,7 @@ function loadEventFrame(){
                                              nm:eventFrameName,
                                              sd:eventFrameStartTime,
                                              ed:eventFrameEndTime,
-                                             color:'#ccc',
+                                             color:defaultColor,
                                              x: Date.UTC(sdate[0], (sdate[1]-1), sdate[2],stime[0],stime[1],stime[2]),
                                              x2: Date.UTC(edyr, edmnth, eddt,h,m,s),
                                              y: y

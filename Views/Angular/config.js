@@ -46,7 +46,7 @@ var eventsColorsData = [
 
 var EFData = [
     {
-        "efName":"EFT1","color":"#058DC7"
+        "efName":"EFT","color":"#058DC7"
     },
     {
         "efName":"EFT2","color":"#50B432"
@@ -61,5 +61,5 @@ var EFData = [
         "efName":"EFT5","color":"#24CBE5"
     }
 ]; ///EVENT FRAME DATA JSON ARRAY 
-
+var defaultColor="#ccc";
 /***CONFIGURATION SETTING***/
