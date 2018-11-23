@@ -42,18 +42,22 @@ app.controller('allocationController', function($scope) {
                                                 </div>\n\
                                                 <div class="col-12 col-lg-6 col-xl-6">\n\
                                                     <div class="card-body">\n\
+\n\<div class="col-12 col-lg-6 col-xl-6">\n\
                                                         <select id="prValues' + sr + '" name="' + sr + '" class="prValues form-control">\n\
                                                         <option value="">---Plant for PR---</option>\n\
                                                         <option value="2">PR - TKD </option>\n\
                                                         <option value="4">PR - MKM_old</option>\n\
                                                         <option value="8">PR - MKM_new</option>\n\
                                                         </select>\n\
+\n\</div>\n\
+\n\<div class="col-12 col-lg-6 col-xl-6">\n\
                                                         <select id="vrValues' + sr + '" name="' + sr + '" class="vrValues form-control">\n\
                                                         <option value="">---Plant for VR---</option>\n\
                                                         <option value="16">VR - TKD </option>\n\
                                                         <option value="32">VR - MKM_old</option>\n\
                                                         <option value="64">VR - MKM_new</option>\n\
                                                         </select>\n\
+\n\</div>\n\
                                                     </div>\n\
                                                 </div>\n\
                                             </div>\n\
