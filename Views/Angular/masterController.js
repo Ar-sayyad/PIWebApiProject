@@ -1,5 +1,6 @@
 app.controller('masterController', function($scope) {
     $scope.pagename = "Master Dashboard";
+    $(".tabDiv").hide();
     var now = new Date();
     $(function() {   
        var month = (now.getMonth() + 1);  
@@ -63,6 +64,7 @@ app.controller('masterController', function($scope) {
         $(".tableAttributes").empty();
         $("#elementChildList").empty();
         $("#cellGraphList").empty(); 
+        $(".tabDiv").show();
         var WebId = $("#elementList").val();
         
         /***GET CHILD ELEMENTS OF SELECTED BLOCK ELEMENT START***/  
@@ -239,19 +241,32 @@ function loadEventFrame(){
                                     etime = etime.split(':');//end time split array
                                 if(edate[0]==='9999'){ var edyr=now.getFullYear(), edmnth = now.getMonth(), eddt=now.getDate(), h = now.getHours(), m = now.getMinutes(), s = now.getSeconds(); eventFrameEndTime="Running";}
                                 else{ var edyr=edate[0], edmnth = (edate[1]-1), eddt=edate[2], h = etime[0], m = etime[1], s =etime[2]; } //if Event Frame is Runnig Stage                              
-                             
+                                var color ='';
                                 $.each(EFData,function(key) {
                                     if(eventFrameName===EFData[key].efName){
+                                         color = EFData[key].color;
+                                    }
+                                    if(color!==''){
                                         data.push({
                                              nm:eventFrameName,
                                              sd:eventFrameStartTime,
                                              ed:eventFrameEndTime,
-                                             color:EFData[key].color,
+                                             color:color,
                                              x: Date.UTC(sdate[0], (sdate[1]-1), sdate[2],stime[0],stime[1],stime[2]),
                                              x2: Date.UTC(edyr, edmnth, eddt,h,m,s),
-                                             y: y,
+                                             y: y
                                          }); 
-                                     }
+                                     }else{
+                                          data.push({
+                                             nm:eventFrameName,
+                                             sd:eventFrameStartTime,
+                                             ed:eventFrameEndTime,
+                                             color:'#ccc',
+                                             x: Date.UTC(sdate[0], (sdate[1]-1), sdate[2],stime[0],stime[1],stime[2]),
+                                             x2: Date.UTC(edyr, edmnth, eddt,h,m,s),
+                                             y: y
+                                         }); 
+                                     }                                     
                                 });                             
                               y++; //AXIS INCREAMENT
                             }); 
@@ -333,7 +348,7 @@ function loadEventFrame(){
             var WebId = $(this).val();
             var name = $(this).attr("data-name");
              chkArray.push(WebId); 
-            var url = baseServiceUrl+'streams/' + WebId + '/recorded?startTime='+startDateTime+'&endTime='+endDateTime+'&searchFullHierarchy=true'; 
+            var url = baseServiceUrl+'streams/' + WebId + '/interpolated?startTime='+startDateTime+'&endTime='+endDateTime+'&searchFullHierarchy=true'; 
             var attributesData =  processJsonContent(url, 'GET', null);
             $.when(attributesData).fail(function () {
                 console.log("Cannot Find the Attributes.");
@@ -428,7 +443,7 @@ function getMap(){
         var WebId = $(this).val();
         var name = $(this).attr("data-name");
         chkArray.push(WebId); 
-        var url = baseServiceUrl+'streams/' + WebId + '/recorded?startTime='+startDateTime+'&endTime='+endDateTime+'&searchFullHierarchy=true';
+        var url = baseServiceUrl+'streams/' + WebId + '/interpolated?startTime='+startDateTime+'&endTime='+endDateTime+'&searchFullHierarchy=true';
         var attributesData =  processJsonContent(url, 'GET', null);
             $.when(attributesData).fail(function () {
                 console.log("Cannot Find the Attributes.");
