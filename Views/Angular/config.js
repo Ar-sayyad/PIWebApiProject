@@ -46,7 +46,7 @@ var eventsColorsData = [
 
 var EFData = [
     {
-        "efName":"EFT","color":"#058DC7"
+        "efName":"EFT1","color":"#058DC7"
     },
     {
         "efName":"EFT2","color":"#50B432"
