@@ -14,6 +14,7 @@ var timestampCat = "masterdashboard_timestamp";/***CATEGORY FOR TIMESTAMP***/
 var filterCategoryName = "asset_design";/****CATEGORY NAME FOR FILTER ELEMENT TEMPLATE****/
 var allocationAttributeName = "PLANT";/****The Plant Attributes Name for save the allocation page data***/
 var iframeConfigUrl = "http://www.google.com"; //IFRAME URL 
+var TagWebId = "F1DSA2V7tr8cYkK5-qqjwhaxygRUNHLURFVi1TRVJWRVI";
 var eventsColorsData = [
     {
         "name":"BALANCE","color":"#058DC7","min":0,"max":150 
